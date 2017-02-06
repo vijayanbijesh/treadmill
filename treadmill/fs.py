@@ -250,15 +250,15 @@ def _iter_plugins():
 
 def init_plugins(rootdir):
     """Initialize plugins."""
-    for mod in _iter_plugins():
-        mod.init(rootdir)
+    # XXX: for mod in _iter_plugins():
+    # XXX:    mod.init(rootdir)
 
 
 def configure_plugins(rootdir, newroot, app):
     """Configure each plugin in pre-chrooted environment."""
     # Load fs plugins
-    for mod in _iter_plugins():
-        mod.configure(rootdir, newroot, app)
+    # XXX: for mod in _iter_plugins():
+    # XXX:   mod.configure(rootdir, newroot, app)
 
 
 ###############################################################################
