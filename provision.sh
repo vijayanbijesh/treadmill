@@ -56,11 +56,8 @@ echo 'export TREADMILL_APPROOT=/tmp/treadmill' >> ~/.bash_profile
 echo 'alias z=/home/centos/zookeeper-3.4.9/bin/zkCli.sh' >> ~/.bash_profile
 source ~/.bash_profile
 #patches
-# logging -- add manually or  templates of yml in code
-mkdir -p /home/centos/treadmill/env/lib/python2.7/etc/logging/
-touch /home/centos/treadmill/env/lib/python2.7/etc/logging/daemon.yml
-touch /home/centos/treadmill/env/lib/python2.7/etc/logging/cli.yml
-cp /home/centos/treadmill/env/lib/python2.7/etc/logging/{cli,admin}.yml
+# logging -- standard logging templates
+cp /home/centos/treadmill/etc/logging /home/centos/treadmill/env/lib/python2.7/etc/
 
 sudo mount --make-rprivate /
 mkdir -p /tmp/treadmill/etc
