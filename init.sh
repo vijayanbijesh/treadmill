@@ -7,3 +7,7 @@ nohup treadmill sproc service --root-dir /tmp/treadmill/ localdisk --reserve 20G
 nohup treadmill sproc service --root-dir /tmp/treadmill/ network > network_service.out &
 nohup treadmill sproc service --root-dir /tmp/treadmill/ cgroup > cgroup_service.out &
 nohup treadmill sproc init --approot /tmp/treadmill/ > node.out &
+cd /tmp/treadmill/running && nohup /bin/s6-svscan > s6_svscan.out & && cd -
+nohup treadmill sproc eventdaemon > eventd.out &
+nohup treadmill sproc appcfgmgr > appcfgmgr.out &
+
