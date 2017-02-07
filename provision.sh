@@ -12,19 +12,19 @@ yum -y install python-devel libkrb5-dev ntp krb5-server krb5-libs krb5-devel
 
 
 # treadmill code
-git clone https://github.com/Morgan-Stanley/treadmill.git
-git clone https://github.com/Morgan-Stanley/treadmill-pid1.git
+git clone https://github.com/snyaggarwal/treadmill.git
+git clone https://github.com/snyaggarwal/treadmill-pid1.git
 curl "https://bootstrap.pypa.io/get-pip.py" -o "get-pip.py"
 python get-pip.py
 pip install virtualenv
-cd treadmill && virtualenv env
+cd /home/centos/treadmill && virtualenv env
 source env/bin/activate
-git checkout remotes/origin/standard_setup
+git checkout remotes/origin/tmp/setup #TODO: this is wip
 pip install --upgrade -r requirements.txt
 python setup.py install
 treadmill --help
 cd -
-cd treadmill-pid1 && make && cd -
+cd /home/centos/treadmill-pid1 && make && cd -
 # udpate pid1 path in treadmill/etc/linux.exe.config
 
 # s6 builds
@@ -54,7 +54,7 @@ echo 'export TREADMILL_APPROOT=/tmp/treadmill' >> ~/.bash_profile
 #export TREADMILL_DNS_DOMAIN=treadmill.com
 #export TREADMILL_LDAP_SEARCH_BASE=foo
 echo 'alias z=/home/centos/zookeeper-3.4.9/bin/zkCli.sh' >> ~/.bash_profile
-
+source ~/.bash_profile
 #patches
 # logging -- add manually or  templates of yml in code
 mkdir -p /home/centos/treadmill/env/lib/python2.7/etc/logging/
@@ -73,4 +73,3 @@ dd if=/dev/zero of=/tmp/treadmill/treadmill.img seek=$((1024*1024*20)) count=1
 cd /sys/fs/cgroup
 for i in *; do mkdir -p $i/treadmill/apps $i/treadmill/core $i/system ; done #why again?
 cd -
-
