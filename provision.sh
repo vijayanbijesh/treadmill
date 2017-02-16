@@ -12,8 +12,8 @@ yum -y install python-devel libkrb5-dev ntp krb5-server krb5-libs krb5-devel
 
 
 # treadmill code
-git clone https://github.com/snyaggarwal/treadmill.git
-git clone https://github.com/snyaggarwal/treadmill-pid1.git
+# git clone https://github.com/snyaggarwal/treadmill.git
+# git clone https://github.com/snyaggarwal/treadmill-pid1.git
 curl "https://bootstrap.pypa.io/get-pip.py" -o "get-pip.py"
 python get-pip.py
 pip install virtualenv
